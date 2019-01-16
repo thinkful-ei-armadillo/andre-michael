@@ -11,39 +11,21 @@ const HEROES = [
     { id: 7, name: 'Hulk', squad: 'Avengers' },
   ];
 
+function doesHeroMatch(hero, query){
+    for(let key in query){
+        if(hero[key] !== query[key]){
+            return false;
+        }
+    }
+    return true;   
+}
+
 function findOne(arr, query) {
-    let result = {};
-    let key, key2;
-    let found = false;
-
-    for(key in query) {
-        if(! found) {
-            result = arr.find((hero) => hero[key] === query[key]);
-        }
-        
-        for(key2 in result) {
-            if(key2 in query) {
-                if(query[key2] === result[key2]) {
-                    found = true;
-                } else {
-                    found = false;
-                }
-            }
-        }
-
-        if(query[key] === result[key]) {
-            found = true;
-        } else {
-            found = false;
-        }
-        
+    for(let i=0; i < arr.length; i++){
+        if(doesHeroMatch(arr[i], query))
+            return arr[i];
     }
-
-    if(! found) {
-        return null;
-    } else {
-        return result;
-    }
+    return null;
 }
 
 
