@@ -31,3 +31,28 @@ const obj = {
 }
 
 console.log(obj.meals[3]);
+
+
+
+const objs = [
+    {
+        name: 'Andre',
+        jobTitle: 'student'
+    },
+    {
+        name: 'Michael Bramble',
+        jobTitle: 'student'
+    },
+    {
+        name: 'Barack Obama',
+        jobTitle: 'retired (unfortunately)'
+    },
+    {
+        name: 'Donald Trump',
+        jobTitle: 'president (unfortunately)'
+    }
+];
+
+for(let i = 0; i < objs.length; i++) {
+    console.log(`${objs[i].name}: ${objs[i].jobTitle}`);
+}
