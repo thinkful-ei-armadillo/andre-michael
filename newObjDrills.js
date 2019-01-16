@@ -37,24 +37,37 @@ console.log(obj.meals[3]);
 const objs = [
     {
         name: 'Andre',
-        jobTitle: 'student'
+        jobTitle: 'student',
+        boss: 'John'
     },
     {
         name: 'Michael Bramble',
-        jobTitle: 'student'
+        jobTitle: 'student',
+        boss: 'John'
     },
     {
         name: 'Barack Obama',
-        jobTitle: 'retired (unfortunately)'
+        jobTitle: 'retired (unfortunately)',
+        boss: 'John'
     },
     {
         name: 'Donald Trump',
-        jobTitle: 'president (unfortunately)'
+        jobTitle: 'president (unfortunately)',
+        boss: 'John'
+    },
+    {
+        name: 'John',
+        jobTitle: 'Founder'
     }
 ];
 
 for(let i = 0; i < objs.length; i++) {
-    console.log(`${objs[i].name}: ${objs[i].jobTitle}`);
+    if('boss' in objs[i]){
+        console.log(`${objs[i].jobTitle} ${objs[i].name} reports to ${objs[i].boss} `);
+    }
+    else{
+        console.log(`${objs[i].jobTitle} ${objs[i].name} doesn't report to anybody.`);
+    }
 }
 
 
