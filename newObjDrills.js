@@ -56,3 +56,40 @@ const objs = [
 for(let i = 0; i < objs.length; i++) {
     console.log(`${objs[i].name}: ${objs[i].jobTitle}`);
 }
+
+
+
+function decode(word) {
+    if(word.length === 5) {
+        let char = word.slice(0, 1);
+        let result = ' ';
+
+        let cipher = {
+            a: word.charAt(1),
+            b: word.charAt(2),
+            c: word.charAt(3),
+            d: word.charAt(4),
+        };
+
+        if(char in cipher) {
+          result = cipher[char];
+        }
+
+        return result;
+    }
+}
+
+function decodeWords(sentence) {
+    let decoded = '';
+    let wordArray = sentence.split(' ');
+
+    for(let i = 0; i < wordArray.length; i++) {
+        decoded += decode(wordArray[i]);
+    }
+
+    return decoded;
+}
+
+let sentence = 'craft block argon meter bells brown croon droop';
+
+console.log(decodeWords(sentence));
