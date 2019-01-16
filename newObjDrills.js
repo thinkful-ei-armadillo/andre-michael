@@ -1,6 +1,52 @@
 /* eslint-disable indent */
 'use strict';
 
+const HEROES = [
+    { id: 1, name: 'Captain America', squad: 'Avengers' },
+    { id: 2, name: 'Iron Man', squad: 'Avengers' },
+    { id: 3, name: 'Spiderman', squad: 'Avengers' },
+    { id: 4, name: 'Superman', squad: 'Justice League' },
+    { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+    { id: 6, name: 'Aquaman', squad: 'Justice League' },
+    { id: 7, name: 'Hulk', squad: 'Avengers' },
+  ];
+
+function findOne(arr, query) {
+    let result = {};
+    let key, key2;
+    let found = false;
+
+    for(key in query) {
+        if(! found) {
+            result = arr.find((hero) => hero[key] === query[key]);
+        }
+        
+        for(key2 in result) {
+            if(key2 in query) {
+                if(query[key2] === result[key2]) {
+                    found = true;
+                } else {
+                    found = false;
+                }
+            }
+        }
+
+        if(query[key] === result[key]) {
+            found = true;
+        } else {
+            found = false;
+        }
+        
+    }
+
+    if(! found) {
+        return null;
+    } else {
+        return result;
+    }
+}
+
+
 let loaf = {flour: 300, water: 210, hydration: function() {
     return ((this.water / this.flour) * 100);
     }
