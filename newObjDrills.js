@@ -23,3 +23,11 @@ let key;
 for(key in myObj) {
     console.log(`${key}: ${myObj[key]}`);
 }
+
+const obj = {
+    meals: ['breakfast', 'second breakfast',
+    'elevenses', 'lunch', 'afternoon tea',
+    'dinner', 'supper']
+}
+
+console.log(obj.meals[3]);
